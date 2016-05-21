@@ -5,6 +5,7 @@ Once a model is learned, use this to play it.
 from flat_game import carmunk
 import numpy as np
 from nn import neural_net
+from time import sleep
 
 NUM_SENSORS = 3
 
@@ -30,7 +31,7 @@ def play(model):
         # Tell us something.
         if car_distance % 1000 == 0:
             print("Current distance: %d frames." % car_distance)
-
+        sleep (0.01)
 
 if __name__ == "__main__":
     saved_model = 'saved-models/164-150-100-50000-25000.h5'
