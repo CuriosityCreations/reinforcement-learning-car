@@ -110,12 +110,7 @@ class GameState:
             self.car_body.angle += .2
         
         #Solve car vanishing
-        if self.car_body.position[0] < 0 or self.car_body.position[1] < 0 or self.car_body.position[0] > width or self.car_body.position[1] > height:
-            self.car_body.position = 100, 100
-            self.obstacles[0].position = 200, 350
-            self.obstacles[1].position = 700, 200
-            self.obstacles[2].position = 600, 600
-            self.cat_body.position = 50, height - 100
+        self.solve_vanishing(self.car_body.position)
         
         # Move obstacles.
         if self.num_steps % 100 == 0:
@@ -168,12 +163,7 @@ class GameState:
         self.cat_body.velocity = speed * direction
         
         #Solve cat vanishing
-        if self.cat_body.position[0] < 0 or self.cat_body.position[1] < 0 or self.cat_body.position[0] > width or self.cat_body.position[1] > height:
-          self.car_body.position = 100, 100
-          self.obstacles[0].position = 200, 350
-          self.obstacles[1].position = 700, 200
-          self.obstacles[2].position = 600, 600
-          self.cat_body.position = 50, height - 100
+        self.solve_vanishing(self.cat_body.position)
 
     def car_is_crashed(self, readings):
         if readings[0] == 1 or readings[1] == 1 or readings[2] == 1:
@@ -284,7 +274,15 @@ class GameState:
             return 0
         else:
             return 1
-
+            
+    def solve_vanishing(self, position):
+        if position[0] < 0 or position[1] < 0 or position[0] > width or position[1] > height:
+            self.car_body.position = 100, 100
+            self.obstacles[0].position = 200, 350
+            self.obstacles[1].position = 700, 200
+            self.obstacles[2].position = 600, 600
+            self.cat_body.position = 50, height - 100
+    
 if __name__ == "__main__":
     game_state = GameState()
     while True:
