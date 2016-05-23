@@ -108,7 +108,15 @@ class GameState:
             self.car_body.angle -= .2
         elif action == 1:  # Turn right.
             self.car_body.angle += .2
-
+        
+        #Solve car vanishing
+        if self.car_body.position[0] < 0 or self.car_body.position[1] < 0 or self.car_body.position[0] > width or self.car_body.position[1] > height:
+            self.car_body.position = 100, 100
+            self.obstacles[0].position = 200, 350
+            self.obstacles[1].position = 700, 200
+            self.obstacles[2].position = 600, 600
+            self.cat_body.position = 50, height - 100
+        
         # Move obstacles.
         if self.num_steps % 100 == 0:
             self.move_obstacles()
@@ -158,6 +166,14 @@ class GameState:
         self.cat_body.angle -= random.randint(-1, 1)
         direction = Vec2d(1, 0).rotated(self.cat_body.angle)
         self.cat_body.velocity = speed * direction
+        
+        #Solve cat vanishing
+        if self.cat_body.position[0] < 0 or self.cat_body.position[1] < 0 or self.cat_body.position[0] > width or self.cat_body.position[1] > height:
+          self.car_body.position = 100, 100
+          self.obstacles[0].position = 200, 350
+          self.obstacles[1].position = 700, 200
+          self.obstacles[2].position = 600, 600
+          self.cat_body.position = 50, height - 100
 
     def car_is_crashed(self, readings):
         if readings[0] == 1 or readings[1] == 1 or readings[2] == 1:
