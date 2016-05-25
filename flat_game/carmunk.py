@@ -276,7 +276,8 @@ class GameState:
             return 1
             
     def solve_vanishing(self, position):
-        if position[0] < 0 or position[1] < 0 or position[0] > width or position[1] > height:
+        x, y = position
+        if x < 0 or y < 0 or x > width or y > height:
             self.car_body.position = 100, 100
             self.obstacles[0].position = 200, 350
             self.obstacles[1].position = 700, 200
