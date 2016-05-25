@@ -47,7 +47,7 @@ def train_net(model, params):
 
         # Choose an action.
         if random.random() < epsilon or t < observe:
-            action = np.random.randint(0, 3)  # random
+            action = np.random.randint(0, 2)  # random
         else:
             # Get Q values for each action.
             qval = model.predict(state, batch_size=1)
