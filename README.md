@@ -28,7 +28,7 @@ https://medium.com/@harvitronix/reinforcement-learning-in-python-to-teach-an-rc-
 4. Update pip3 ```pip3 install --upgrade pip```
 5. Install Keras ```pip3 install keras```
 6. Upgrade Theanos ```pip3 install git+git://github.com/Theano/Theano.git --upgrade --no-deps```
-7. Install h5py for saving models ```sudo apt-get install python-h5py```
+7. Install h5py for saving models ```sudo apt-get install python3-h5py```
 
 ### Training
 
