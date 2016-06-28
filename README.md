@@ -63,3 +63,4 @@ I'm grateful to the following people and the work they did that helped me learn 
 - Deep learning to play Atari games: https://github.com/spragunr/deep_q_rl
 - Another deep learning project for video games: https://github.com/asrivat1/DeepLearningVideoGames
 - A great tutorial on reinforcement learning that a lot of my project is based on: http://outlace.com/Reinforcement-Learning-Part-3/
+- Reinforcement learning algorithm: http://www.cse.unsw.edu.au/~cs9417ml/RL1/algorithms.html
